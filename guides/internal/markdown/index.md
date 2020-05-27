@@ -14,10 +14,8 @@ previous_page_id: ''
 source_url: >-
   https://github.com/box/developer.box.com/blob/master/content/guides/internal/markdown/index.md
 ---
-
 <!-- does not need translation -->
 
-# Markdown & More
+# マークダウンなど
 
-The following guides provide an explanation on how to use markdown
-within these docs.
+以下のガイドでは、これらのドキュメント内でのマークダウンの使用方法を説明します。

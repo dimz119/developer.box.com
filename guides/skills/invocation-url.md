@@ -21,56 +21,49 @@ previous_page_id: ''
 source_url: >-
   https://github.com/box/developer.box.com/blob/master/content/guides/skills/invocation-url.md
 ---
+# Box Skills呼び出しURL
 
-# Box Skills Invocation URL
+新しい[Box Skillsアプリケーション](guide://applications/custom-skills)の作成時に、呼び出しURLを指定するよう求められます。これは、Skillsアプリが監視するフォルダ内にファイルがアップロード、コピー、移動されたときに、Boxから送信される[イベント通知ペイロード](guide://skills/handle/payload)の送信先です。
 
-When creating a new
-[Box Skills application](guide://applications/custom-skills) you will be asked
-to supply an invocation URL. The invocation is a location where Box will
-sent an [event notification payload](guide://skills/handle/payload) when a file
-is uploaded, copied, or moved within a folder monitored by the Skills app.
+この通知をリッスンしているWebサイトまたはアプリケーションは、Box上のファイルと、ファイルからインサイトを取得するために使用されている機械学習システムなどのシステムの間のブリッジとして機能します。
 
-This website or application that is listening for those notifications functions
-as a bridge between the file on Box and the system that is being employed to
-garner insight from the file, such as the machine learning system.
+## 呼び出しURLの要件
 
-## Invocation URL Requirements
+呼び出しURLは以下の要件を満たす必要があります。
 
-The invocation URL should:
+* パブリックに使用できること。`localhost`には通知を送信できません。
+* URLに直接`HTTP POST`リクエストをリッスンするコードが含まれていること。Box Skillsは、HTTP POSTリクエストを介してイベント通知を送信します。
 
-- Be publicly available. Notifications cannot be sent to `localhost`.
-- Have code that is listening for `HTTP POST` requests directly to the URL. Box
-  Skills will send the event notification via an `HTTP POST request.
+## 呼び出しURLの背後での一般的なホスティング方法
 
-## Common Hosting Methods Behind an Invocation URL
+呼び出しURLの背後にあるアプリケーションに使用される一般的なホスティング方法はいくつかあります。
 
-There are a number of common hosting methods that are employed for an
-application that is behind the invocation URL.
+通常、このミドルウェアサービスは以下の処理を行う必要があります。
 
-Typically this middleware service will need to do the following:
+* Boxからのイベント通知をキャプチャする。
+* Boxからファイルをダウンロードし、処理システムに送信する。
+* 機械学習システムからの応答をリッスンする。
+* 機械学習システムからの応答を、Boxメタデータ形式に変換する。
+* Boxに保存されているファイルに新しいメタデータを適用する。
 
-- Capture an event notification from Box.
-- Download the file from Box and send it to the processing system.
-- Listen for the response from the machine learning system.
-- Format the response from the machine learning system into a Box metadata
-format.
-- Apply the new metadata back to the file stored on Box.
-
-Depending on security requirements and approved services at your company, we
-typically see these services hosted in a few ways:
+このようなサービスは一般的に、会社のセキュリティ要件と承認されているサービスに応じて、次の方法でホストされます。
 
 <!-- markdownlint-disable line-length -->
 
-| Method                       | Description                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Self Hosted                  | When external hosting services are not approved for use within the company, or where all application functions need to be hosted within your own servers. In this instance you will expose a URL publicly, which points to code hosted on your own servers.                                                                                                                                                                                             |
-| Serverless Function          | Due to the nature of the sporadic event notifications sent through Skills, serverless functions such as [AWS Lambda][aws_lambda], [Google Cloud Functions][google_functions], or [Microsoft Azure Functions][azure_functions] are a natural fit. The serverless function will only run, and be billed, when the event is being processed. The serverless function will be set up with a publicly exposed URL, which will be used as the invocation URL. |
-| External Application Hosting | External application hosting solutions, such as [Heroku][heroku] or [Firebase][firebase], are other viable options if serverless technology is not preferred. These applications will be hosted on their respective services and have an publicly exposed URL for the app that will be used as the invocation URL.                                                                                                                                      |
+| 方法            | 説明                                                                                                                                                                                                                                                                  |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| セルフホスティング     | 会社内での外部ホスティングサービスの使用が承認されていない場合、またはすべてのアプリケーション機能を自社サーバー内でホストする必要がある場合にこの方式を使用します。このホスティング方法では、自社サーバーでホストされているコードにリンクするURLを公開します。                                                                                                                                   |
+| サーバーレス関数      | イベント通知には、Skillsを介して散発的に送信されるという特徴があるため、[AWS Lambda][aws_lambda]、[Google Cloud Functions][google_functions]、[Microsoft Azure Functions][azure_functions]などのサーバーレス関数が適しています。このようなサーバーレス関数はイベントの処理中にのみ実行され、課金の対象となります。サーバーレス関数には公開URLがセットアップされ、このURLが呼び出しURLとして使用されます。 |
+| 外部アプリケーションホスト | サーバーレステクノロジが望ましくない場合、[Heroku][heroku]、[Firebase][firebase]などの外部アプリケーションホスティングソリューションも使用できます。このようなアプリケーションはそれぞれ固有のサービスでホストされ、アプリケーション用の公開URLが呼び出しURLとして使用されます。                                                                                                       |
 
 <!-- markdownlint-enable line-length -->
 
 [aws_lambda]: https://aws.amazon.com/lambda/
+
 [google_functions]: https://cloud.google.com/functions/
+
 [azure_functions]: https://azure.microsoft.com/en-us/services/functions/
+
 [heroku]: https://www.heroku.com/
+
 [firebase]: https://firebase.google.com/

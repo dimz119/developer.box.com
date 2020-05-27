@@ -15,27 +15,21 @@ previous_page_id: skills/kit
 source_url: >-
   https://github.com/box/developer.box.com/blob/master/content/guides/skills/index.md
 ---
-
 # Box Skills
 
-Box Skills are designed to allow the coupling of custom processing services for
-files uploaded in Box, with the intent of enhancing the underlying metadata of
-the file. The benefit towards this system is that it permits the storage of
-rich information about any files, which may then be used to automated tasks and
-future processes.
+Box Skillsでは、ファイルの基盤となるメタデータを強化することを目的として、Boxにアップロードされたファイル向けのカスタム処理サービスを結合できます。このシステムの利点は、さまざまなファイルの豊富な情報を保存しておき、自動化されたタスクや将来のプロセスに使用できることです。
 
-In general the end-to-end process of a Skills application follows the following
-flow:
+一般に、Skillsアプリケーションのエンドツーエンドプロセスは以下のフローに従います。
 
 <!-- markdownlint-disable line-length -->
 
-| Step                                                  | Description                                                                                                                                                             |
-| ----------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [App Setup](guide://applications/custom-skills/setup) | A Custom Skills app is created to listen for upload events within the entire enterprise or one or more folders.                                                         |
-| [Invocation URL Setup](guide://skills/invocation-url) | When the Custom Skills app is created an invocation URL is set, which Box will notify when a new file is uploaded.                                                      |
-| [Parse Event](guide://skills/handle/payload)          | When a file is uploaded, copied, or moved into a folder an event payload is sent to your invocation URL. This provides tokens to access the uploaded file in Box and store metadata back onto the file. |
-| [Send File for Processing](guide://skills/examples)   | The file content is sent to an external service for insight processing, such as a machine learning system.                                                              |
-| [Store Metadata](guide://skills/handle/metadata)      | Once the processing system is complete, those insights are stored back on the uploaded file as metadata.                                                                |
+| 手順                                                 | 説明                                                                                                                   |
+| -------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| [アプリの設定](guide://applications/custom-skills/setup) | 会社全体または1つ以上のフォルダ内におけるアップロードイベントをリッスンするカスタムSkillsアプリを作成します。                                                           |
+| [呼び出しURLの設定](guide://skills/invocation-url)        | カスタムSkillsアプリを作成したら、新しいファイルがアップロードされたときにBoxの通知が送られる呼び出しURLを設定します。                                                    |
+| [イベントの解析](guide://skills/handle/payload)           | ファイルがフォルダにアップロード、コピー、または移動されると、呼び出しURLにイベントペイロードが送信されます。これにより、Boxにアップロードされたファイルにアクセスしてファイルにメタデータを保存するためのトークンが提供されます。 |
+| [処理するファイルの送信](guide://skills/examples)             | ファイルコンテンツが、機械学習システムなどのインサイト処理を行う外部サービスに送信されます。                                                                       |
+| [メタデータの保存](guide://skills/handle/metadata)         | 処理システムが完了すると、アップロードされているファイルに、そのインサイトがメタデータとして再保存されます。                                                               |
 
 <!-- markdownlint-enable line-length -->
 
@@ -43,9 +37,6 @@ flow:
 
 # Skills Kit
 
-To simplify your integration with Box Skills, a [Skills
-Kit](guide://skills/kit) has been made available to obfuscate many
-complexities of the above steps. The Skills Kit is currently only available in
-Node.
+Box Skillsとの統合を簡素化するため、上記の手順の複雑さを減らした[Skills Kit](guide://skills/kit)が提供されています。Skills Kitは現在、Nodeでのみ入手可能です。
 
 </Message>

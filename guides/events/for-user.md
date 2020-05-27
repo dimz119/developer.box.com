@@ -22,65 +22,56 @@ previous_page_id: ''
 source_url: >-
   https://github.com/box/developer.box.com/blob/master/content/guides/events/for-user.md
 ---
+# ユーザーイベントの取得
 
-# Get User Events
+ユーザーイベントを取得するには、任意のユーザーとして認証し、[`GET /events`](e://get_events) APIを呼び出します。
 
-To get a user's events, authenticate as any user and make a call to the
-[`GET /events`](e://get_events) API.
-
-<Samples id="get_events" >
+<Samples id="get_events">
 
 </Samples>
 
 <Message>
 
-The events returned will only be for the user who's access token the API was
-made with. To get the event feed for a different user either use the `as-user`
-header or an actual access token for that user.
+返されるイベントは、APIの作成に使用したアクセストークンを所有するユーザーのみを対象とします。別のユーザーのイベントフィードを取得するには、`as-user`ヘッダーか、そのユーザーの実際のアクセストークンを使用します。
 
 </Message>
 
-## Long Polling
+## ロングポーリング
 
-The user event stream supports long-polling
-[through the `OPTIONS /events` API][longpoll].
+ユーザーイベントストリームでは、[`OPTIONS /events` APIを介して][longpoll]Long pollingがサポートされます。
 
-## Stream Types
+## ストリームタイプ
 
-The user event stream support 3 types of stream.
+ユーザーイベントストリームでは、3つのタイプのストリームがサポートされます。
 
 <!-- markdownlint-disable line-length -->
 
-| Stream Type |                                                                                         |
-|-------------|-----------------------------------------------------------------------------------------|
-| `all`       | Returns everything for a user (default)                                                 |
-| `changes`   | Returns events that may cause file tree changes such as file updates or collaborations. |
-| `sync`      | Is similar to changes but only applies to synced folders                                |
+| ストリームタイプ  |                                                                                         |
+| --------- | --------------------------------------------------------------------------------------- |
+| `all`     | Returns everything for a user (default)                                                 |
+| `changes` | Returns events that may cause file tree changes such as file updates or collaborations. |
+| `sync`    | Is similar to changes but only applies to synced folders                                |
 
 <!-- markdownlint-enable line-length -->
 
-## Limitations
+## 制限
 
-Box does not store events indefinitely.
+Boxでのイベントの保存は無期限ではありません。
 
-User events are stored for between two weeks and two months, after which the
-user events are removed. Enterprise events are accessible for one year via the
-API and seven years via exported reports in the Box Admin Console.
+ユーザーイベントは2週間から2か月間保存され、その後、保存されたユーザーイベントは削除されます。エンタープライズイベントには、APIを介した場合は1年間、Box管理コンソールのエクスポートされたレポート経由の場合は7年間アクセスできます。
 
-The emphasis of this feed is to return the complete results quickly, which means
-that Box may return events more than once or out of order. Duplicate events can
-be identified by their event IDs.
+このフィードでは、完全な結果を迅速に返すことを重視しています。つまり、Boxではイベントを複数回または異なる順序で返す可能性があります。重複するイベントは、イベントIDによって識別できます。
 
-## Event Types
+## イベントタイプ
 
-The following events can be triggered for a user.
+ユーザーに対して、以下のイベントがトリガーされます。
 
 <!-- markdownlint-disable line-length -->
 
-The following events are available in all feeds.
+以下のイベントは、すべてのフィードで使用できます。
 
-| Event name                   | Description                                                                     |
-|------------------------------|---------------------------------------------------------------------------------|
+| イベント名                        | 説明                                                                              |
+| ---------------------------- | ------------------------------------------------------------------------------- |
 | `ITEM_CREATE`                | A folder or File was created                                                    |
 | `ITEM_UPLOAD`                | A folder or File was uploaded                                                   |
 | `ITEM_MOVE`                  | A file or folder was moved                                                      |
@@ -100,10 +91,10 @@ The following events are available in all feeds.
 | `GROUP_ADD_USER`             | Added user to group                                                             |
 | `GROUP_REMOVE_USER`          | Removed user from group                                                         |
 
-The following events are only available in the `all` feed.
+以下のイベントは、`all`フィードでのみ使用できます。
 
-| Event name               | Description                                               |
-|--------------------------|-----------------------------------------------------------|
+| イベント名                    | 説明                                                        |
+| ------------------------ | --------------------------------------------------------- |
 | `COMMENT_CREATE`         | A comment was created on a folder, file, or other comment |
 | `COMMENT_DELETE`         | A comment was deleted on folder, file, or other comment   |
 | `ITEM_DOWNLOAD`          | A file or folder was downloaded                           |
@@ -122,13 +113,10 @@ The following events are only available in the `all` feed.
 
 <!-- markdownlint-enable line-length -->
 
-## Anonymous Users
+## 匿名ユーザー
 
-In some cases, the event feed might list a user with an ID of `2`. This is Box's
-internal identifier for anonymous users.
+場合によっては、イベントフィードには、IDが`2`のユーザーが表示される可能性があります。これは、匿名ユーザーを表すBoxの内部識別子です。
 
-An anonymous user is a user that is not logged in. This can happen any time a
-user interacts with content and they aren't asked to log in first. An example
-would be when a user downloads a file through an open shared link.
+匿名ユーザーは、ログインしていないユーザーです。この状況は、ユーザーがコンテンツを操作し、最初にログインを求められない場合にいつでも発生する可能性があります。たとえば、ユーザーが、公開共有リンクを使用してファイルをダウンロードするときなどです。
 
 [longpoll]: g://events/polling

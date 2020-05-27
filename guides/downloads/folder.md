@@ -23,18 +23,15 @@ previous_page_id: downloads/get-url
 source_url: >-
   https://github.com/box/developer.box.com/blob/master/content/guides/downloads/folder.md
 ---
+# フォルダ内のすべてのファイルのダウンロード
 
-# Download All Files in Folder
-
-Sometimes an application might want to download all files for a folder. To do so
-with the SDKs and the CLI requires traversing the folder tree, finding every
-file and downloading it accordingly.
+アプリケーションによっては、1つのフォルダのすべてのファイルをダウンロードできる場合もあります。SDKとCLIを使用してこの処理を実行するには、フォルダツリー内を移動してすべてのファイルを探し、そのファイルをダウンロードする必要があります。
 
 <!-- markdownlint-disable line-length -->
 
 <Tabs>
 
-<Tab title='.NET'>
+<Tab title=".NET">
 
 ```dotnet
 using System;
@@ -260,12 +257,8 @@ function autoPage(iterator) {
 
 <Message warning>
 
-It is important to remember that an application needs to have the
-permissions to access and download the files and folders in question. When the
-authenticated user does not have access to any of the files or folders, a
-`HTTP 404 Not Found` error will occur.
+アプリケーションには、当該ファイルおよびフォルダにアクセスしてダウンロードするための権限が必要であることに注意してください。認証済みユーザーがいずれのファイルおよびフォルダにもアクセスできない場合は、`HTTP 404 Not Found`エラーが発生します。
 
-Lear more about [User Types](g://authentication/user-types) in our guides on
-authentication.
+認証に関するガイドにある[ユーザータイプ](g://authentication/user-types)の詳細をご覧ください。
 
 </Message>

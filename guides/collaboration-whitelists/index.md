@@ -19,18 +19,12 @@ previous_page_id: collaboration-whitelists/delete-whitelist
 source_url: >-
   https://github.com/box/developer.box.com/blob/master/content/guides/collaboration-whitelists/index.md
 ---
-
 <!-- alex disable whitelist -->
 
-# Collaboration Whitelists
+# コラボレーションホワイトリスト
 
-Within the content and sharing settings for an enterprise, an admin can specify
-[collaboration restrictions][collab-restrictions] for the enterprise. These
-settings include the ability to limit collaborations to only a series of
-whitelisted domains.
+会社のコンテンツと共有設定では、管理者は会社に対して[コラボレーションの制限][collab-restrictions]を設定できます。この設定では、ホワイトリストに登録された一連のドメインのみにコラボレーションを制限することも可能です。
 
-The collaboration whitelist APIs are available to allow applications with
-appropriate permissions to add, fetch, and delete these whitelisted domains
-programmatically for the enterprise.
+コラボレーションホワイトリストAPIを使用すると、適切な権限を持つアプリケーションは、会社のホワイトリストに登録されたドメインをプログラムを使用して追加、取得、および削除できます。
 
 [collab-restrictions]: https://community.box.com/t5/How-to-Guides-for-Admins/Content-and-sharing-settings-for-your-enterprise/ta-p/174#toc-hId--670854033

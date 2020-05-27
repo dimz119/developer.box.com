@@ -26,16 +26,15 @@ next_page_id: ''
 previous_page_id: ''
 source_url: 'https://github.com/box/developer.box.com/blob/master/content/pages/index.md'
 ---
-
 # Box Platform
 
 <Hero>
 
 <Centered wide>
 
-# Build with the Box Platform
+# Box Platformで構築
 
-Integrate, extend and build apps with the power of Box
+Boxを利用してアプリケーションを統合、拡張、構築
 
 </Centered>
 
@@ -43,16 +42,16 @@ Integrate, extend and build apps with the power of Box
 
 <Centered wide>
 
-<Header to='/guides'>
+<Header to="/guides">
 Developer News
 
 </Header>
 
-<BlogCards >
+<BlogCards>
 
 </BlogCards>
 
-<More to='https://medium.com/box-developer-blog' right>
+<More to="https://medium.com/box-developer-blog" right>
 Developer Blog
 
 </More>
@@ -65,13 +64,13 @@ Developer Blog
 
 <HorizontalList centered>
 
-## Stay up to date
+## 最新情報
 
-* [Developer Blog](https://medium.com/box-developer-blog)
-* [Newsletter](page://newsletter)
-* [Changelog & Release Notes](page://changelog)
+* [開発者向けブログ](https://medium.com/box-developer-blog)
+* [ニュースレター](page://newsletter)
+* [変更ログとリリースノート](page://changelog)
 * [Twitter](https://twitter.com/boxplatform/)
-* [API Status](https://status.box.com/)
+* [APIステータス](https://status.box.com/)
 
 </HorizontalList>
 
@@ -81,16 +80,16 @@ Developer Blog
 
 <Centered wide>
 
-<Header to='/guides'>
+<Header to="/guides">
 Guides
 
 </Header>
 
-<GuideCategories >
+<GuideCategories>
 
 </GuideCategories>
 
-<More to='/guides' right>
+<More to="/guides" right>
 All guides
 
 </More>
@@ -103,12 +102,12 @@ All guides
 
 <HorizontalList centered>
 
-## Elsewhere
+## 外部サイトへのリンク
 
-* [Support](page://support)
-* [Feedback](https://pulse.box.com/forums//%20909778-product-feedback?category_id=330838)
+* [サポート](page://support)
+* [フィードバック](https://pulse.box.com/forums//%20909778-product-feedback?category_id=330838)
 * [GitHub](https://github.com/box)
-* [Developer Blog](https://medium.com/box-developer-blog)
+* [開発者向けブログ](https://medium.com/box-developer-blog)
 * [Twitter](https://twitter.com/boxplatform/)
 
 </HorizontalList>
@@ -119,16 +118,16 @@ All guides
 
 <Centered wide>
 
-<Header to='/reference'>
+<Header to="/reference">
 API Reference
 
 </Header>
 
-<ReferenceCategories >
+<ReferenceCategories>
 
 </ReferenceCategories>
 
-<More to='/reference/' right>
+<More to="/reference/" right>
 Full API Reference
 
 </More>

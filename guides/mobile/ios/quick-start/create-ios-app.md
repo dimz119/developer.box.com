@@ -14,48 +14,41 @@ previous_page_id: mobile/ios/quick-start
 source_url: >-
   https://github.com/box/developer.box.com/blob/master/content/guides/mobile/ios/quick-start/1-create-ios-app.md
 ---
+# iOSアプリの作成
 
-# Create an iOS App
+Box iOS SDKをインストールする前に、依存関係を追加できるiOSアプリケーションを用意しておく必要があります。ここでは、新しい空のアプリケーションを作成します。
 
-Before installing the Box iOS SDK you'll need to have an iOS application
-available to add the dependencies into. We'll create a new blank application
-now.
+## iOSアプリのセットアップ
 
-## Setup an iOS App
+このクイックスタートガイドでは、iOSアプリケーションの作成と編集にXcodeというツールを使用します。Xcodeをお持ちでない場合は、[Appleの開発者向けサイト](https://developer.apple.com/xcode/)からダウンロードしてください。
 
-Xcode will be the tool that we use to create and edit our iOS application
-during this quick-start guide. If you don't have Xcode, download it now from the
-[Apple developer site](https://developer.apple.com/xcode/).
+今回Xcodeでのアプリケーションの作成が初めてである場合も、すでにアプリケーション開発の経験がある場合も、Box iOS SDKと新しい空のアプリケーションの統合から開始します。
 
-If this is the first application you're creating in Xcode or you already have
-application development experience in it, we'll start our integration of the
-Box iOS SDK with a new blank application.
+1. Xcodeを起動します。
+2. 上部のメニューから、\[**File**] -> \[**New**] -> \[**Project...**]を選択します。
+3. \[**Single View App**]のオプションを選択します。
+   <ImageFrame center>
 
-1. Start Xcode
-2. From the top menu, select **File** -> **New** -> **Project...**
-3. Select the option for **Single View App**
-<ImageFrame center>
-
-![Select iOS application type](./create-app-type.png)
+![iOSアプリケーションの種類の選択](./create-app-type.png)
 
 </ImageFrame>
 4. Enter your application configuration information, including the
 `Product Name`, `Organization Identifier`, and `Organization Name`.
 <ImageFrame center>
 
-![Configure iOS application](./create-app-config.png)
+![iOSアプリケーションの設定](./create-app-config.png)
 
 </ImageFrame>
 5. Select a local storage location for the application and click **Create**
 
 </Choice>
 
-## Summary
+## まとめ
 
-* You created a new blank iOS application in Xcode
+* Xcodeで新しい空のiOSアプリケーションが作成されました。
 
 <Next>
 
-I created a blank iOS application
+空のiOSアプリケーションを作成しました
 
 </Next>

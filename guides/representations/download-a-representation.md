@@ -21,19 +21,13 @@ previous_page_id: representations/request-a-representation
 source_url: >-
   https://github.com/box/developer.box.com/blob/master/content/guides/representations/download-a-representation.md
 ---
+# ファイルレプリゼンテーションのダウンロード
 
-# Download File Representation
+レプリゼンテーションをダウンロードするには、[レプリゼンテーションを選択][select_representation]した際に受け取った`url_template`を使用します。`{+asset_path}`は、レプリゼンテーションの種類に応じて置き換えます。
 
-Use the`url_template` that was received when
-[selecting the representation][select_representation] to download
-the representation. Replace the `{+asset_path}` depending on
-the type of representation.
+## ページ割りされたレプリゼンテーション
 
-## Paginated representations
-
-For paged representations like PDFs replace `{+asset_path}`
-with the desired page number and the file extension, for example
-`1.pdf`.
+PDFのようにページ割りされたレプリゼンテーションでは、`{+asset_path}`を目的のページ番号とファイル拡張子に置き換えます(例: `1.pdf`)。
 
 <!-- markdownlint-disable line-length -->
 
@@ -44,10 +38,9 @@ curl https://dl.boxcloud.com/api/2.0/internal_files/123/versions/345/representat
 
 <!-- markdownlint-enable line-length -->
 
-## Non-paginated representations
+## ページ割りされていないレプリゼンテーション
 
-For non-paged representations, replace the `{+asset_path}` with
-an empty string.
+ページ割りされていないレプリゼンテーションでは、`{+asset_path}`を空の文字列に置き換えます。
 
 <!-- markdownlint-disable line-length -->
 
@@ -58,30 +51,27 @@ curl https://dl.boxcloud.com/api/2.0/internal_files/123/versions/345/representat
 
 <!-- markdownlint-eable line-length -->
 
-## Optional query parameters
+## 省略可能なクエリパラメータ
 
-When fetching the representation the following optional headers
-are supported.
+レプリゼンテーションを取得する場合、以下の省略可能なヘッダーを使用できます。
 
-| Parameter                      | Options                 | Default |
-| ------------------------------ | ----------------------- | ------- |
-| `set_content_disposition_type` | `inline` / `attachment` | `null`  |
+| パラメータ                          | オプション                   | デフォルト  |
+| ------------------------------ | ----------------------- | ------ |
+| `set_content_disposition_type` | `inline` / `attachment` | `null` |
 
 Sets the `content-disposition` header in the API response with the specified
 value. A disposition type of `attachment` causes most web browsers to prompt
 the user to save the response to their device, where the type `inline`
 will open the file in the browser.
 
-If not supplied, the `content-disposition` header is not included in the
-response.
+指定しなかった場合、応答に`content-disposition`ヘッダーは含まれません。
 
-| Parameter                      | Options                    | Default |
-| ------------------------------ | -------------------------- | ------- |
-| `set_content_disposition_filename` | Filename without extension | `null`  |
+| パラメータ                              | オプション                      | デフォルト  |
+| ---------------------------------- | -------------------------- | ------ |
+| `set_content_disposition_filename` | Filename without extension | `null` |
 
 Allows the application to define the downloaded representation's file name.
 
-If not defined, the file name is derived from the source file name in Box,
-replacing the extension with the representation's file type.
+定義しなかった場合、ファイル名は、Box内の元のファイル名から派生し、拡張子はレプリゼンテーションのファイルタイプに置き換えられます。
 
 [select_representation]: guide://representations/request-a-representation

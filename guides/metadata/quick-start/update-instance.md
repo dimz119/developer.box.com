@@ -20,31 +20,24 @@ previous_page_id: metadata/quick-start/create-instance
 source_url: >-
   https://github.com/box/developer.box.com/blob/master/content/guides/metadata/1-quick-start/4-update-instance.md
 ---
+# ファイルのメタデータを更新
 
-# Update metadata on a file
+メタデータをファイルまたはフォルダに適用したら、多くの場合は、後日メタデータの更新が必要になります。
 
-Once metadata has been applied to a file or folder there is often a need to
-update the metadata at a later date.
+メタデータインスタンスを更新するには、元のデータに一連の操作を適用します。これらの操作はアトミックに実行されるため、変更はすべて適用されるか、まったく適用されないかのいずれかになります。
 
-Updating a metadata instance is done by applying a set of operations to the
-original data. These operations are performed atomically, ensuring that the
-changes are either all applied or not applied at all.
-
-<CTA to='g://metadata/instances/update'>
+<CTA to="g://metadata/instances/update">
 Learn more about updating instances
 
 </CTA>
 
-In this case, let's assume we want to change the `name` of the customer from
-`Box, Inc` to `Box`. We can apply two operations, firstly, we ensure the
-value of the name is still `Box, Inc` before we change it, and secondly we make
-the change.
+この場合、顧客の`name`を`Box, Inc`から`Box`に変更するとします。適用できる操作は2つあり、まず、変更前に名前の値がまだ`Box, Inc`であることを確認し、次に変更を行います。
 
 <!-- markdownlint-disable line-length -->
 
 <Tabs>
 
-<Tab title='cURL'>
+<Tab title="cURL">
 
 ```sh
 curl -X PUT https://api.box.com/2.0/files/12345/metadata/enterprise/customerInfo \
@@ -137,12 +130,12 @@ client.files.updateMetadata(
 
 </Tabs>
 
-<CTA to='g://metadata/instances/update'>
+<CTA to="g://metadata/instances/update">
 Learn more about all operations
 
 </CTA>
 
-The API will return the updated metadata instance.
+このAPIにより、更新されたメタデータインスタンスが返されます。
 
 ```json
 {
@@ -164,6 +157,6 @@ The API will return the updated metadata instance.
 
 <Next>
 
-I've updated metadata to a file
+ファイルのメタデータを更新しました
 
 </Next>

@@ -20,19 +20,15 @@ previous_page_id: metadata/quick-start/create-template
 source_url: >-
   https://github.com/box/developer.box.com/blob/master/content/guides/metadata/1-quick-start/3-create-instance.md
 ---
+# ファイルにメタデータを適用
 
-# Apply metadata to a file
-
-With your new `customerData` template in hand you can now apply this template to
-a file or folder. To apply this template you will need the `scope` and
-`templateKey` of the template, as well as the ID of the item to apply the
-template to.
+新しい`customerData`テンプレートが完成したら、このテンプレートをファイルまたはフォルダに適用できます。このテンプレートを適用するには、テンプレートの`scope`と`templateKey`のほか、テンプレートの適用先となる項目のIDが必要になります。
 
 <!-- markdownlint-disable line-length -->
 
 <Tabs>
 
-<Tab title='cURL'>
+<Tab title="cURL">
 
 ```sh
 curl -X POST https://api.box.com/2.0/files/12345/metadata/enterprise/customerInfo \
@@ -113,13 +109,11 @@ client.files.addMetadata(
 
 <Message warning>
 
-The `industry` field in this example is an `enum` field and therefore the
-value needs to be one of the available options on the field. Any other value
-will result in an error.
+この例の`industry`フィールドは`enum`フィールドであるため、値にはこのフィールドで使用できるオプションのいずれかを指定する必要があります。それ以外の値を指定するとエラーが発生します。
 
 </Message>
 
-The API will return the newly created metadata instance.
+このAPIにより、新しく作成されたメタデータインスタンスが返されます。
 
 ```json
 {
@@ -141,6 +135,6 @@ The API will return the newly created metadata instance.
 
 <Next>
 
-I've applied metadata to a file
+ファイルにメタデータを適用しました
 
 </Next>

@@ -22,25 +22,22 @@ previous_page_id: downloads/file-version
 source_url: >-
   https://github.com/box/developer.box.com/blob/master/content/guides/downloads/shared-link.md
 ---
+# 共有リンクのダウンロード
 
-# Download Shared Link
+[共有リンク][shared-link]のファイルをダウンロードするには、最初にリンクの[ファイルを確認][get-file]します。
 
-To download the file for a [Shared Link][shared-link], first [determine the
-file][get-file] for the link.
+ファイルIDが確認されたら、`BoxAPI`ヘッダーをAPIに渡して、ファイルをダウンロードできます。
 
-Once the file ID has been determined, the file can be downloaded by passing the
-`BoxAPI` header to the API.
-
-<Samples id='get_files_id_content' variant='for_shared_file' >
+<Samples id="get_files_id_content" variant="for_shared_file">
 
 </Samples>
 
 <Message warning>
 
-To get the Shared Link for an item the user must have at least viewer-level
-access to the item.
+項目の共有リンクを取得する場合、ユーザーには少なくとも、その項目に対するビューアーレベルのアクセス権限が必要です。
 
 </Message>
 
 [shared-link]: g://shared-links
+
 [get-file]: g://shared-links/find-for-item

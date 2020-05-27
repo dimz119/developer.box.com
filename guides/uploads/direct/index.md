@@ -14,15 +14,10 @@ previous_page_id: ''
 source_url: >-
   https://github.com/box/developer.box.com/blob/master/content/guides/uploads/direct/index.md
 ---
+# 直接アップロード
 
-# Direct Uploads
+Boxにファイルをアップロードする最も簡単な方法は、直接アップロードを使用することです。直接アップロードには、ファイルサイズが最大`50MB`、1回のAPI呼び出しでアップロードできるのは1ファイルまでという制限があります。
 
-The most straightforward way to upload a file to Box is using a direct upload.
-Direct uploads are restricted to a maximum file size of `50MB` and upload a file
-by making 1 API call.
+## アップロードドメイン
 
-## Upload domain
-
-Uploads to Box happen via a different domain (`upload.box.com`) than regular API
-calls. This is something to keep in mind when writing your own upload code. All
-the Box SDKs will take care of choosing the right domain for the right API call.
+Boxへのアップロードは、通常のAPI呼び出しとは異なるドメイン(`upload.box.com`)を介して行われます。アップロードコードを作成するときは、この点に注意する必要があります。すべてのBox SDKで、API呼び出しに適切なドメインが選択されます。

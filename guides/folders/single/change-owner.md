@@ -21,22 +21,19 @@ previous_page_id: folders/single/delete
 source_url: >-
   https://github.com/box/developer.box.com/blob/master/content/guides/folders/single/change-owner.md
 ---
+# フォルダ所有者の変更
 
-# Change Folder Owner
+フォルダの所有者を変更するには、まず、フォルダの移行先となるユーザーをフォルダへのコラボレータとして招待します。
 
-To change the owner of a folder, first invite the user to transfer the folder to
-as a collaborator to the folder.
-
-<Samples id='post_collaborations' >
+<Samples id="post_collaborations">
 
 </Samples>
 
-Then, update the collaboration the created collaboration to change the role of
-that invited user to `owner`.
+次に、作成したコラボレーションを更新して、招待したそのユーザーのロールを`owner`に変更します。
 
 <Tabs>
 
-<Tab title='cURL'>
+<Tab title="cURL">
 
 ```curl
 curl -X PUT https://api.box.com/2.0/collaborations/1234 \
@@ -96,8 +93,6 @@ client.collaborations.update('12345', {role: client.collaborationRoles.OWNER})
 
 <Message warning>
 
-Depending on the settings, a user with access to a folder might be able to
-invite other users, yet in all cases only the current owner of a folder can
-transfer the ownership.
+設定によっては、フォルダへのアクセス権限を持つユーザーが他のユーザーを招待できることもありますが、いかなる場合でも、所有権を移管できるのは、フォルダの現在の所有者のみです。
 
 </Message>

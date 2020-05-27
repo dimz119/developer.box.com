@@ -24,47 +24,35 @@ previous_page_id: authentication/jwt/as-user
 source_url: >-
   https://github.com/box/developer.box.com/blob/master/content/guides/authentication/jwt/user-access-tokens.md
 ---
+# ユーザーアクセストークン
 
-# User Access Token
-
-It is possible for a JWT application to act on behalf of another user
-by creating an access token for a specific user instead of the Service Account
-for the application.
+アプリケーションのサービスアカウントではなく特定のユーザーにアクセストークンを作成することで、JWTアプリケーションは別のユーザーの代理になることができます。
 
 <Message>
 
-In this situation the user ID is the Box identifier for a user. User IDs can
-found for any user via the `GET /users` endpoint, which is only available to
-admins, or by calling the `GET /users/me` endpoint with an authenticated user session.
+この場合、ユーザーIDはユーザーのBox識別子です。どのユーザーでも、ユーザーIDは、管理者だけが利用可能な`GET /users`エンドポイントを介して確認できます。また、認証済みのユーザーセッションで`GET /users/me`エンドポイントを呼び出して確認することもできます。
 
 </Message>
 
-## Preconditions
+## 前提条件
 
-Creating a user access token has a few requirements. Firstly, the application
-needs to be configured to  be allowed to create user access tokens in the [developer
-console][devconsole].
+ユーザーアクセストークンを作成するには、いくつかの要件があります。最初に、[開発者コンソール][devconsole]でユーザーアクセストークンを作成できるようアプリケーションを構成する必要があります。
 
 <ImageFrame border center>
 
-![Advanced Features](./enable-user-access-tokens.png)
+![高度な機能](./enable-user-access-tokens.png)
 
 </ImageFrame>
 
-Additionally, the authenticated user needs to be a user with admin permissions,
-meaning either an admin, co-admin, or service account. See our guide on [User
-Types](g://authentication/user-types) for more details.
+さらに、認証済みユーザーは、管理者権限を持つユーザー、つまり、管理者、共同管理者、またはサービスアカウントのいずれかである必要があります。詳細については、[ユーザータイプ](g://authentication/user-types)のガイドを参照してください。
 
-## User Access Tokens with SDKs
+## SDKを使用したユーザーアクセストークン
 
-To create a Box SDK client that authenticates as a specific user instead of the
-JWT app's Service Account, follow the same steps as described in the [JWT with
-SDK guide](g://authentication/jwt/with-sdk) but instead of creating an
-"Enterprise" client we instead create a user client.
+JWTアプリのサービスアカウントではなく特定のユーザーとして認証するBox SDKクライアントを作成するには、[SDKを使用したJWTのガイド](g://authentication/jwt/with-sdk)で説明されているのと同じ手順に従います。ただし、「エンタープライズ」クライアントではなく、ユーザークライアントを作成します。
 
 <Tabs>
 
-<Tab title='.Net'>
+<Tab title=".Net">
 
 ```dotnet
 var userId = "12345";
@@ -75,7 +63,7 @@ BoxClient client = boxJWT.UserClient(userToken, userId);
 
 </Tab>
 
-<Tab title='Java'>
+<Tab title="Java">
 
 <!-- markdownlint-disable line-length -->
 
@@ -88,7 +76,7 @@ BoxDeveloperEditionAPIConnection api = new BoxDeveloperEditionAPIConnection.getA
 
 </Tab>
 
-<Tab title='Python'>
+<Tab title="Python">
 
 ```python
 user = client.user(user_id='12345')
@@ -107,7 +95,7 @@ user_client = Client(auth)
 
 </Tab>
 
-<Tab title='Node'>
+<Tab title="Node">
 
 ```js
 var sdk = BoxSDK.getPreconfiguredInstance(config);
@@ -118,21 +106,18 @@ var client = sdk.getAppAuthClient('user', '12345');
 
 </Tabs>
 
-<CTA to='g://authentication/jwt/with-sdk'>
+<CTA to="g://authentication/jwt/with-sdk">
 Learn more about using the Box SDKs for JWT
 
 </CTA>
 
-## User Access Tokens without SDKs
+## SDKを使用しないユーザーアクセストークン
 
-To create a User Access Token that authenticates as a specific user instead of
-the JWT app's Service Account follow the same steps as described in the [JWT
-without SDK guide](g://authentication/jwt/without-sdk) but instead of creating
-a claim for the enterprise, create one for a specific user ID.
+JWTアプリのサービスアカウントではなく特定のユーザーとして認証するユーザーアクセストークンを作成するには、[SDKを使用しないJWTのガイド](g://authentication/jwt/without-sdk)で説明されているのと同じ手順に従います。ただし、クレームは、会社ではなく特定のユーザーIDに対して作成します。
 
 <Tabs>
 
-<Tab title='.Net'>
+<Tab title=".Net">
 
 ```dotnet
 var userId = "12345";
@@ -146,7 +131,7 @@ var claims = new List<Claim>{
 
 </Tab>
 
-<Tab title='Java'>
+<Tab title="Java">
 
 ```java
 String userId = "12345";
@@ -162,7 +147,7 @@ claims.setExpirationTimeMinutesInTheFuture(0.75f);
 
 </Tab>
 
-<Tab title='Python'>
+<Tab title="Python">
 
 ```python
 user_id = '12345';
@@ -230,7 +215,7 @@ $claims = [
 
 </Tabs>
 
-<CTA to='g://authentication/jwt/with-sdk'>
+<CTA to="g://authentication/jwt/with-sdk">
 Learn more about manually using JWT authentication
 
 </CTA>

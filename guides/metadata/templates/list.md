@@ -24,52 +24,47 @@ previous_page_id: ''
 source_url: >-
   https://github.com/box/developer.box.com/blob/master/content/guides/metadata/2-templates/2-list.md
 ---
+# すべてのメタデータテンプレートのリストを取得
 
-# List all metadata templates
+[enterpriseスコープまたはglobalスコープ][scopes]のメタデータテンプレートのリストを取得できます。
 
-Metadata templates can be listed for either the [enterprise or the global
-scope][scopes].
+## グローバルテンプレートのリストを取得
 
-## List global templates
+すべてのグローバルメタデータテンプレートのリストを取得するには、[`GET
+/metadata_templates/global`][get_global] APIエンドポイントを呼び出します。
 
-To list all global metadata templates, call the [`GET
-/metadata_templates/global`][get_global] API endpoint.
-
-<Samples id="get_metadata_templates_global" >
+<Samples id="get_metadata_templates_global">
 
 </Samples>
 
 <Message>
 
-This API returns a list of all the metadata templates created by Box and made
-available to all enterprises.
+このAPIは、Boxによって作成され、すべての会社が使用できるすべてのメタデータテンプレートのリストを返します。
 
 </Message>
 
-## List current enterprise's templates
+## 現在の会社のテンプレートのリストを取得
 
-To list all templates metadata templates created for usage within the current
-enterprise, call the [`GET  /metadata_templates/enterprise`][get_enterprise] API
-endpoint.
+現在の会社内で使用するために作成されたすべてのメタデータテンプレートのリストを取得するには、[`GET  /metadata_templates/enterprise`][get_enterprise] APIエンドポイントを呼び出します。
 
-<Samples id="get_metadata_templates_enterprise" >
+<Samples id="get_metadata_templates_enterprise">
 
 </Samples>
 
 <Message>
 
-This API returns a list of all the metadata templates created by this
-enterprise, and these templates are only available to apply to files in this enterprise.
+このAPIは、この会社によって作成されたすべてのメタデータテンプレートのリストを返します。これらのテンプレートは、この会社内のファイルにのみ適用できます。
 
 </Message>
 
-## Pagination
+## ページ割り
 
-This API uses [marker-based pagination][pagination] and can return a
-`next_marker` value in the response body to indicate that more templates might
-be available.
+このAPIでは、[マーカーベースのページ割り][pagination]が使用されており、応答の本文で、より多くのテンプレートを使用できることを示す`next_marker`値を返すことができます。
 
 [scopes]: g://metadata/scopes
+
 [get_global]: e://get_metadata_templates_global
+
 [get_enterprise]: e://get_metadata_templates_enterprise
+
 [pagination]: g://api-calls/pagination/marker-based

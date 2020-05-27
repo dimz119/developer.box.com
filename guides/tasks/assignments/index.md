@@ -13,15 +13,12 @@ previous_page_id: ''
 source_url: >-
   https://github.com/box/developer.box.com/blob/master/content/guides/tasks/assignments/0-index.md
 ---
+# タスクの割り当て
 
-# Assigning tasks
+Boxでタスクがユーザーに委任されると、タスク割り当てが作成されます。タスク割り当ては、そのユーザーにタスクを完了するよう求めるリクエストです。
 
-When a task is delegated to a user in Box it creates a task assignment. A task
-assignment is a request for that user to complete the task.
+タスクの解決方法は、タスクの`action`タイプと、タスクの解決方法を定義するために使用される`resolution_state`によって異なります。
 
-The way a task is resolved depends on the `action` type of a task and the
-`resolution_state` used to define how a task is resolved.
-
-<CTA to='g://tasks'>Learn about types of tasks
+<CTA to="g://tasks">タスクのタイプについて確認する
 
 </CTA>

@@ -19,31 +19,24 @@ previous_page_id: metadata/quick-start/update-instance
 source_url: >-
   https://github.com/box/developer.box.com/blob/master/content/guides/metadata/1-quick-start/5-update-template.md
 ---
+# メタデータテンプレートの更新
 
-# Update a metadata template
+既存のメタデータテンプレートの更新方法を見てみましょう。
 
-Let's look at how we can update an existing metadata template.
+メタデータテンプレートの更新は、テンプレート自体を直接変更するのではなく、**操作**を利用して実行されます。この方法では、ファイルおよびフォルダにすでに適用されている既存のメタデータインスタンスを更新できます。
 
-Updates to metadata templates are performed through **operations** rather than
-directly changing the template itself. This method allows you to update any
-existing metadata instances that are already applied to files and folders.
-
-<CTA to='g://metadata/templates/update'>
+<CTA to="g://metadata/templates/update">
 Learn more about updating templates
 
 </CTA>
 
-In this case, let's assume that we realized that having a `Name` field is a bit
-ambiguous, and so we to change the `Name` field of the `customerInfo` template
-to `Company Name` instead. By using the `editField` operation we can change the
-`displayName` and the `key` of the field on the template and on every instance
-of the template that might be applied to a file or folder.
+この場合は、`Name`フィールドが少しあいまいであることを認識しているため、`customerInfo`テンプレートの`Name`フィールドを`Company Name`に変更したいとしましょう。`editField`操作を使用することで、テンプレートと、ファイルまたはフォルダに適用されている可能性のあるテンプレートのすべてのインスタンスのフィールドの`displayName`および`key`を変更できます。
 
 <!-- markdownlint-disable line-length -->
 
 <Tabs>
 
-<Tab title='cURL'>
+<Tab title="cURL">
 
 ```sh
 curl -X PUT https://api.box.com/2.0/metadata_templates/enterprise/blueprintTemplate/schema \
@@ -131,7 +124,7 @@ client.metadata.updateTemplate(
 
 </Tabs>
 
-The API will return the updated metadata template.
+このAPIにより、更新されたメタデータテンプレートが返されます。
 
 ```json
 {
@@ -173,9 +166,7 @@ The API will return the updated metadata template.
 }
 ```
 
-Updating the template through operations has the benefit that any instance of
-the template is automatically updated as well. In this case, the instance we
-created in previous steps would now look something like this.
+操作によってテンプレートを更新した場合は、テンプレートのインスタンスもすべて自動的に更新されるという利点があります。この場合、前の手順で作成したインスタンスは次のようになります。
 
 ```json
 {
@@ -197,6 +188,6 @@ created in previous steps would now look something like this.
 
 <Next>
 
-I've updated metadata to a file
+ファイルのメタデータを更新しました
 
 </Next>

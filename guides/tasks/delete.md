@@ -22,12 +22,10 @@ previous_page_id: tasks/update
 source_url: >-
   https://github.com/box/developer.box.com/blob/master/content/guides/tasks/5-delete.md
 ---
+# タスクの削除
 
-# Delete a task
+タスクを削除するには、タスクの`id`を指定して[`DELETE /tasks/:task_id`](e://delete_tasks_id) APIを呼び出します。
 
-To remove a task, call the [`DELETE /tasks/:task_id`](e://delete_tasks_id) API
-with the `id` of the task.
-
-<Samples id='delete_tasks_id' >
+<Samples id="delete_tasks_id">
 
 </Samples>

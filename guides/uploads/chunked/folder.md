@@ -23,18 +23,15 @@ previous_page_id: uploads/chunked/commit-session
 source_url: >-
   https://github.com/box/developer.box.com/blob/master/content/guides/uploads/chunked/folder.md
 ---
+# フォルダ内のすべてのファイルのアップロード
 
-# Upload All Files in Folder
-
-Sometimes an application might want to upload all files from a folder. To do so
-with the SDKs and the CLI requires traversing the folder tree, finding every
-file and uploading it accordingly.
+アプリケーションによっては、1つのフォルダのすべてのファイルをアップロードできる場合もあります。SDKとCLIを使用してこの処理を実行するには、フォルダツリー内を移動してすべてのファイルを探し、そのファイルをアップロードする必要があります。
 
 <!-- markdownlint-disable line-length -->
 
 <Tabs>
 
-<Tab title='.NET'>
+<Tab title=".NET">
 
 ```dotnet
 using System;
@@ -482,26 +479,18 @@ box folders:upload ./folder_name_to_upload --parent-folder=$folder_id
 
 <!-- markdownlint-enable line-length -->
 
-## Breakdown
+## 解説
 
-The scripts above use the Box SDKs and the CLI to upload an entire folder. For
-the SDK scripts, they start by creating a directory in Box to match the local
-folder.
+上のスクリプトは、Box SDKとCLIを使用してフォルダ全体をアップロードします。このSDKスクリプトでは、最初にローカルフォルダに対応するディレクトリをBox内に作成します。
 
-After the new directory is created, it uploads all files within the directory
-making sure to use all available Box features to make the uploads successful.
+新しいディレクトリが作成されたら、ディレクトリ内のすべてのファイルをアップロードし、利用可能なすべてのBox機能を使用してアップロードを確実に成功させます。
 
-Using the [Preflight][preflight] API the files are checked for conflicts and
-size restrictions before they are uploaded. If a naming conflict is found, the
-script instead uploads a new version of that file.
+アップロードの前に、[事前チェック][preflight]APIを使用してファイルの競合とサイズ制限をチェックします。名前の競合が見つかった場合、代わりにそのファイルの新しいバージョンをアップロードします。
 
-Using the the `SHA` hash of the file the scripts add a `content-md5` header on
-upload to make sure the file is successfully uploaded to Box without any bytes
-lost or tampered with.
+ファイルの`SHA`ハッシュを使用して、アップロード時に`content-md5`ヘッダーを追加することで、ファイルのデータが失われたり改変されたりすることなくBoxに正常にアップロードされるようにします。
 
-Finally, if a file size exceeds 20MB`, the script uses the [Chunked
-Upload][chunked] feature to make sure uploads are more reliable for larger
-files.
+最後に、ファイルサイズが20MBを超える場合、[分割アップロード][chunked]機能を使用して、大きいファイルのアップロードの信頼性を高めます。
 
 [preflight]: g://uploads/check
+
 [chunked]: g://uploads/chunked

@@ -21,38 +21,25 @@ previous_page_id: ''
 source_url: >-
   https://github.com/box/developer.box.com/blob/master/content/guides/users/deprovision/user.md
 ---
+# ユーザーのプロビジョニング解除
 
-# Deprovision User
+通常のBox Enterpriseの保守の一部として、会社内でアクティブではなくなったユーザーのアカウントを削除します。会社からユーザーを削除する際は、ユーザーアカウントを削除する前に、そのユーザーが所有するすべてのコンテンツを別のアカウントに移動する必要があります。
 
-Part of regular Box enterprise maintenance is removing accounts for users that
-are no longer active in your enterprise. When removing a user from your
-enterprise, you'll need to move all content owned by the user into another
-account before deleting the user account.
+<Message type="notice">
 
-<Message type='notice'>
-
-The delete user request will fail if the user account still has content in
-it. An optional `force` parameter is available in the API call, which will
-force delete the user account along with all content in the account.
+ユーザーアカウントにまだコンテンツがある場合、ユーザー削除リクエストは失敗します。ユーザーアカウントとアカウント内のすべてのコンテンツを強制的に削除するオプションである`force`パラメーターを、API呼び出しで使用できます。
 
 </Message>
 
-The standard best practice when decommissioning a user account is to move all
-content owned by that user into another admin level account or into the
-application service account. Once moved, you can transfer ownership of the
-content to a different user or collaborate a different user on the content if
-needed.
+ユーザーアカウントを廃止する際の標準的なベストプラクティスは、そのユーザーが所有するすべてのコンテンツを別の管理者レベルアカウントまたはアプリケーションサービスアカウントに移動することです。移動したら、コンテンツの所有権を別のユーザーに移管するか、必要に応じてそのコンテンツで別のユーザーとコラボレーションをすることができます。
 
-## Deprovisioning Example
+## プロビジョニング解除の例
 
-Use the following code samples to transfer a user's content and then delete the
-user. When content is being transferred, a new folder is created in the
-destination user's root folder following this pattern:
-`employee_email@email.com - employee_name's Files and Folders`
+以下のコードサンプルを使用して、ユーザーのコンテンツを転送し、ユーザーを削除できます。コンテンツが転送される際には、次のパターンに従って転送先ユーザーのルートフォルダに新しいフォルダが作成されます。`employee_email@email.com - employee_name's Files and Folders`
 
 <Tabs>
 
-<Tab title='Node'>
+<Tab title="Node">
 
 ```js
 'use strict'

@@ -22,59 +22,49 @@ previous_page_id: events/for-user
 source_url: >-
   https://github.com/box/developer.box.com/blob/master/content/guides/events/for-enterprise.md
 ---
+# エンタープライズイベントの取得
 
-# Get Enterprise Events
+エンタープライズイベントを取得するには、管理者権限を持つユーザーを認証し、`stream_type`を`admin_logs`に設定して[`GET /events`](e://get_events) APIを呼び出します。
 
-To get a enterprise's events, authenticate a user with admin permission and make
-a call to the [`GET /events`](e://get_events) API with the `stream_type` set to
-`admin_logs`.
-
-<Samples id="get_events" >
+<Samples id="get_events">
 
 </Samples>
 
 <Message>
 
-This API requires the user to be an enterprise admin or co-admin with the
-permission to **Run new reports and access existing reports**.
+このAPIを使用するには、ユーザーは**新規レポートの実行と既存レポートへのアクセス**のための権限を持つ、会社の管理者または共同管理者である必要があります。
 
 </Message>
 
-## Filter by Event Type
+## イベントタイプによるフィルタ
 
-The enterprise event feed support filtering by event type.
+エンタープライズイベントフィードでは、イベントタイプによるフィルタがサポートされています。
 
 ```curl
 curl https://api.box.com/2.0/events?event_type=LOGIN,FAILED_LOGIN \
   -H "authorization: Bearer ACCESS_TOKEN"
 ```
 
-A full list of event types can be found below.
+イベントタイプの完全なリストについては、以下を参照してください。
 
-## Limitations
+## 制限
 
-The admin event feed does not support long polling. To long poll for events, use
-the user event feed.
+管理者イベントフィードでは、ロングポーリングがサポートされません。イベントに対するロングポーリングでは、ユーザーイベントフィードを使用します。
 
-Box does not store events indefinitely.
+Boxでのイベントの保存は無期限ではありません。
 
-User events are stored for between two weeks and two months, after which the
-user events are removed. Enterprise events are accessible for one year via the
-API and seven years via exported reports in the Box Admin Console.
+ユーザーイベントは2週間から2か月間保存され、その後、保存されたユーザーイベントは削除されます。エンタープライズイベントには、APIを介した場合は1年間、Box管理コンソールのエクスポートされたレポート経由の場合は7年間アクセスできます。
 
-The emphasis for this feed is on completeness over latency, which means that Box
-may deliver admin events with higher latency than the user feed. Unlike the user
-events stream, the admin events stream supports filtering for specific events
-but does not support long polling.
+このフィードでは、レイテンシよりも完全性を重視しています。つまり、Boxでは管理者イベントをユーザーフィードよりも高いレイテンシで配信することがあります。ユーザーイベントストリームとは違い、管理者イベントストリームでは、特定のイベントに対するフィルタが可能ですが、ロングポーリングはサポートされていません。
 
-## Event Types
+## イベントタイプ
 
-The following events can be triggered for an enterprise.
+エンタープライズに対して、以下のイベントがトリガーされます。
 
 <!-- markdownlint-disable line-length -->
 
-| Event name                                     | Description                                                                                     |
-|------------------------------------------------|-------------------------------------------------------------------------------------------------|
+| イベント名                                          | 説明                                                                                              |
+| ---------------------------------------------- | ----------------------------------------------------------------------------------------------- |
 | `GROUP_ADD_USER`                               | Added user to group                                                                             |
 | `NEW_USER`                                     | Created user                                                                                    |
 | `GROUP_CREATION`                               | Created new group                                                                               |
@@ -171,11 +161,8 @@ The following events can be triggered for an enterprise.
 
 <!-- markdownlint-enable line-length -->
 
-## Anonymous Users
+## 匿名ユーザー
 
-In some cases, the event feed might list a user with an ID of `2`. This is Box's
-internal identifier for anonymous users.
+場合によっては、イベントフィードには、IDが`2`のユーザーが表示される可能性があります。これは、匿名ユーザーを表すBoxの内部識別子です。
 
-An anonymous user is a user that is not logged in. This can happen any time a
-user interacts with content and they aren't asked to log in first. An example
-would be when a user downloads a file through an open shared link.
+匿名ユーザーは、ログインしていないユーザーです。この状況は、ユーザーがコンテンツを操作し、最初にログインを求められない場合にいつでも発生する可能性があります。たとえば、ユーザーが、公開共有リンクを使用してファイルをダウンロードするときなどです。

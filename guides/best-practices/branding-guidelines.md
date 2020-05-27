@@ -19,65 +19,49 @@ previous_page_id: best-practices/mobile-deep-linking
 source_url: >-
   https://github.com/box/developer.box.com/blob/master/content/guides/best-practices/branding-guidelines.md
 ---
+# ブランディングガイドライン
 
-# Branding Guidelines
+Box Platformをご利用いただき、誠にありがとうございます。ぜひ、お客様のBoxのご利用体験を世界に向けて発信してください。ただし、お客様のアプリケーションとBox公式アプリケーションが混同されないようにすることは非常に重要です。そのため、当社の名称とロゴの使用に関するガイドラインをご用意しました。
 
-We’re glad you’re using the Box platform, and we want you to be able to
-broadcast to the world that you’re using Box, but it’s very important that your
-application not be mistaken for an official Box application. For that reason,
-we’ve created a guide to what you can and can’t do with our name and
-logo.
+## 承認済みのロゴ
 
-## Approved logos
+承認済みのBoxロゴは、[このBoxフォルダ][logos]で確認できます。
 
-Approved Box logos can be found in [this Box folder][logos].
+## お願いしたいこと
 
-## Things to do
+### ユーザーへの周知
 
-### Inform users
+Boxに接続していることをユーザー自身が認識できるようにしてください。
 
-Let users know when they’re connecting to Box.
+多くのアプリには、「クラウドサービスに接続」のようなメニューがあります。この場合は、ユーザーにわかるように当社の名称とロゴをご自由にお使いいただけます。
 
-Many apps feature a “connect to cloud services” menu, or something similar. In
-this case, you should feel free to use our name and logo to help people find us.
+### 当社へのお問い合わせ
 
-### Contact us
+判断に迷う場合はご相談ください。お客様のアプリが当社のガイドラインに沿って動作するようお手伝いします。[ご不明な点があればこちらからお問い合わせください][contact]。
 
-We’re here to help. Many situations can be ambiguous, and we’ll absolutely work
-with you to make sure that your app works within our guidelines. [Contact
-us with any questions][contact].
+## ご遠慮いただきたいこと
 
-## Things not to do
+### Boxと間違われないようにする
 
-### Don' impersonate Box
+お客様のアプリケーションに、Box公式アプリケーションと間違えられる可能性のある名前を付けないでください。
 
-Please don't call your application anything that might be mistaken for an
-official Box application.
+つまり、Boxの公式なものでないことが明白な場合を除き、「Box」という単語は使わないようにしてください。たとえば、「Unofficial Box Client」は公式なものでないことが明らかですが、「Box App for Android」は不明確です。
 
-This means no use of the word "Box" unless it’s abundantly clear that it’s not
-official. For example, "Unofficial Box Client" is certainly clear enough, while
-"Box App for Android" is not.
+お客様のブランド名を含める場合(たとえば「\<会社名> Box Client」)は、おそらく問題ないと考えられます。ただし、これはブランディングガイドラインとしては非常に不明瞭なため、ご不明な点がある場合は[お問い合わせください][contact]。迅速に対応いたします。
 
-If you include your own brand name (for example,
-"My Company Box Client"), you’re probably fine. Nonetheless, this is probably the
-most ambiguous guideline, so please [contact us][contact] if you have any
-questions, and we’ll get you sorted out right away!
+まとめると、次のようになります。
 
-In short though, this means:
+* 当社のロゴ、類似のロゴ、または当社のロゴの一部をお客様のアプリケーションのアイコンとして使用しないでください。
+* お客様のアプリケーション内で当社の名称またはロゴを、そのアプリケーションがBox公式アプリケーションに見えるような形で使用しないでください。
 
-* Don't use our logo or any similar logo or part of our logo as the icon for your
-  application.
-* Don't use our name or logo in any way inside your application that would make
-  it look like it’s an official Box application.
+### Boxのロゴを改変しない
 
-### Don't alter Box logo
+お客様のアプリケーションで「Box」のロゴを使用する場合は、どのような方法であってもそのロゴを改変しないでください。
 
-Don't alter the 'Box' logo in any way when using it in your application.
+### 古い名称を使用しない
 
-### Don't use older names
-
-Don't refer to us as `Box.net` or `Boxnet`. Our company is now known as
-"Box" only.
+当社を`Box.net`または`Boxnet`と呼ばないでください。現在、当社は「Box」としてのみ認知されています。
 
 [logos]: https://cloud.box.com/s/v1yn0eyqpxx657brrgcn
+
 [contact]: https://community.box.com/t5/custom/page/page-id/submit_api_questionaire

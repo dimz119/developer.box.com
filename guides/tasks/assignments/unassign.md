@@ -18,21 +18,18 @@ previous_page_id: tasks/assignments/assign
 source_url: >-
   https://github.com/box/developer.box.com/blob/master/content/guides/tasks/assignments/2-unassign.md
 ---
+# タスク割り当ての解除
 
-# Unassign a task
+タスクの割り当てを解除するには、タスク割り当ての`id`を指定して[`DELETE /task_assignments`](e://delete_task_assignments_id) APIを呼び出します。
 
-To unassign a task, you will need to provide the
-[`DELETE /task_assignments`](e://delete_task_assignments_id) API with the `id`
-of the task assignment.
-
-<Samples id='delete_task_assignments_id' >
+<Samples id="delete_task_assignments_id">
 
 </Samples>
 
 <Message warning>
 
-# Permissions
+# 権限
 
-The user deleting the assignment needs to be a collaborator on the file.
+割り当てを削除するユーザーは、ファイルのコラボレータである必要があります。
 
 </Message>

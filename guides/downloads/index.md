@@ -14,33 +14,24 @@ previous_page_id: downloads/folder
 source_url: >-
   https://github.com/box/developer.box.com/blob/master/content/guides/downloads/index.md
 ---
+# ダウンロード
 
-# Downloads
+Box APIを使用すると、ファイルをアプリケーションのサーバーにダウンロードすることも、エンドユーザーがブラウザで直接ダウンロードすることもできます。
 
-The Box API allows for downloading files to the application's server, or directly
-by the end user in a browser.
+## ダウンロードすべきでない場合
 
-## When not to download
-
-Downloading a file is not always the desired solution, especially if the file is
-only being downloaded for the user to preview, comment, or annotate. In those
-cases we recommend using one of the ways to embed the Box experience straight
-into your application.
+ファイルのダウンロードが必ずしも望ましい解決策であるとは限りません。特に、ユーザーがプレビューしたりコメントや注釈を付けたりするためだけにファイルがダウンロードされる場合にこれが当てはまります。このような場合は、Boxの機能をアプリケーションに直接埋め込む方法のいずれかを利用することをお勧めします。
 
 <CTA to="g://embed/">
 Learn more about embedding Box
 
 </CTA>
 
-## Access Errors
+## アクセスエラー
 
-It is important to realize that the application needs to have access to the
-file that is to be downloaded. When the application is a authenticated through
-JWT or App Tokens, the user authenticated as is a Service Account. This service
-account does not have access to files besides their own.
+アプリケーションには、ダウンロードするファイルへのアクセス権限が必要であると理解しておくことが重要です。アプリケーションがJWTまたはアプリトークンを使用して認証される場合、ユーザーはサービスアカウントとして認証されます。このサービスアカウントには、そのアカウントが所有していないファイルへのアクセス権限がありません。
 
-If this user does not have access to the file the application will receive a
-`404 Not Found` error.
+このユーザーがファイルにアクセスできない場合、アプリケーションでは`404 Not Found`エラーが表示されます。
 
 <CTA to="g://authentication/user-types">
 Learn more about different User Types

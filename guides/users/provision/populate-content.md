@@ -20,16 +20,13 @@ previous_page_id: users/provision/architecture
 source_url: >-
   https://github.com/box/developer.box.com/blob/master/content/guides/users/provision/populate-content.md
 ---
+# コンテンツの入力
 
-# Populate Content
-
-Once the architecture files have been defined through the `etc/skel`
-structure in your service account, you can now use the following script to copy
-anything under the `skel` directly to the new user's root directory.
+サービスアカウントの`etc/skel`構造を使用してアーキテクチャファイルを定義すると、次のスクリプトを使用して`skel`の下にあるすべての項目を新しいユーザーのルートディレクトリに直接コピーできます。
 
 <Tabs>
 
-<Tab title='Node'>
+<Tab title="Node">
 
 ```js
 'use strict'

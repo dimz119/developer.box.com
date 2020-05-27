@@ -21,13 +21,10 @@ previous_page_id: ''
 source_url: >-
   https://github.com/box/developer.box.com/blob/master/content/guides/web-links/create.md
 ---
+# ウェブリンクの作成
 
-# Create Web Link
+Boxでウェブリンクを作成するには、APIにフォルダ`id`と、ウェブリンクのリンク先である`url`を渡す必要があります。`url`は`http://`または`https://`で始まる必要があります。
 
-To create a web link in Box, you will need to provide our API with a folder
-`id` and the `url` you want the web link to be linked to. The `url` must start
-with `http://` or `https://`.
-
-<Samples id='post_web_link'>
+<Samples id="post_web_link">
 
 </Samples>

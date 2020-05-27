@@ -23,34 +23,25 @@ previous_page_id: representations/download-a-representation
 source_url: >-
   https://github.com/box/developer.box.com/blob/master/content/guides/representations/thumbnail-representation.md
 ---
+# サムネイルレプリゼンテーションの取得
 
-# Get Thumbnail Representation
+サムネイルとは小さい画像のことで、アプリケーション内でファイルのレプリゼンテーションとして使用できる`.png`または`.jpg`で表されます。たとえば、ファイルをダウンロードまたはプレビューするリンクのプレースホルダとして使用されます。
 
-A thumbnail is a small image, either as `.png` or as `.jpg` that can be used in
-an application as a representation of the file, for example as a placeholder for
-a link that downloads or previews the file.
+`1024x1024`および`2048x2048`のPNGを除くすべてのサムネイルレプリゼンテーションは、元のファイルをBoxにアップロードしたときに生成されます。
 
-All thumbnail representations except `1024x1024` and `2048x2048` PNGs are
-generated upon uploading the source file to Box.
+ファイルのサムネイルは、[サムネイルAPI][thumbnail_api]を使用して取得することもできます。
 
-An alternative way to get a thumbnail for a file is using the
-[thumbnail API][thumbnail_api].
+## 手順
 
-## The process
+サムネイルレプリゼンテーションを取得するには、以下の手順に従います。
 
-To get a thumbnail representation follow the following steps
+* [すべてのレプリゼンテーションのリストを取得する][list-all-representations]
+* `[jpg?dimensions=32x32]`のように目的のサムネイル形式とサイズを表す`X-Ref-Hints`ヘッダーを渡して、[サムネイルをリクエストする][request-a-representation]。
+* `url_template`を呼び出して[サムネイルをダウンロード][download-a-representation]する。その際、`{+asset_path}`を空の文字列に置き換えます。
 
-- [List all representations][list-all-representations]
-- [Request a thumbnail][request-a-representation]
-  by passing the `X-Ref-Hints`-header for the desired thumbnail format
-  and size, for example `[jpg?dimensions=32x32]`.
-- [Download the thumbnail][download-a-representation]
-  by calling the `url_template`, replacing the `{+asset_path}` with an empty
-  string.
+## 例
 
-## Examples
-
-The following a some example `x-rep-hints`-header values
+`x-rep-hints`ヘッダーの値の例を以下に示します。
 
 | `x-rep-hints: [jpg?dimensions=32x32]` |
 | ------------------------------------- |
@@ -72,56 +63,54 @@ The following a some example `x-rep-hints`-header values
 
 <!-- markdownlint-enable line-length -->
 
-## Supported file sizes
+## サポートされているファイルサイズ
 
-The following formats and sizes of thumbnails are available.
+以下のサムネイルの形式とサイズが使用可能です。
 
 <!-- markdownlint-disable line-length -->
 
-| File Type | Dimensions                                                         |
-| --------- | ------------------------------------------------------------------ |
-| JPG       | `32x32`, `94x94`, `160x160`, `320x320`, `1024x1024`, `2048x2048`\* |
-| PNG       | `1024x1024`\*, `2048x2048`\*                                       |
+| ファイルタイプ | サイズ                                                                |
+| ------- | ------------------------------------------------------------------ |
+| JPG     | `32x32`, `94x94`, `160x160`, `320x320`, `1024x1024`, `2048x2048`\* |
+| PNG     | `1024x1024`\*, `2048x2048`\*                                       |
 
-Some restrictions apply to the sizes marked as `*`.
+`*`が付いているサイズには、いくつかの制限があります。
 
 <!-- markdownlint-enable line-length -->
 
-## File size restrictions
+## ファイルサイズの制限
 
-### JPEG `2048x2048`
+### `2048x2048`のJPEG
 
-The JPEG `2048x2048` size is only available when the
-original file is a JPEG. We recommend either requesting a PNG or both a PNG
-and a JPEG for this dimension.
+`2048x2048`サイズのJPEGを使用できるのは、元のファイルがJPEGの場合のみです。このサイズを使用する場合は、PNGか、PNGとJPEGの両方をリクエストすることをお勧めします。
 
-### Video files
+### 動画ファイル
 
-JPEG `2048x2048`, PNG `2048x20148` and PNG `1024x1024` representations are not
-available for video files.
+`2048x2048`のJPEG、`2048x20148`のPNG、および`1024x1024`のPNGのレプリゼンテーションは、動画ファイルでは使用できません。
 
-### Original file size
+### 元のファイルサイズ
 
-Thumbnails are not scaled up. If the original file size of the file uploaded to
-Box is smaller than the representation dimensions, the resulting thumbnail is
-capped at the size of the original file.
+サムネイルは拡大されません。Boxにアップロードされたファイルの元のファイルサイズがレプリゼンテーションのサイズより小さい場合は、作成されるサムネイルのサイズの上限は元のファイルのサイズになります。
 
-## Supported file types
+## サポートされているファイルタイプ
 
-At this time the following file types are supported.
+現時点でサポートされているファイルタイプは以下のとおりです。
 
 <!-- markdownlint-disable line-length -->
 
-| File Type | File Extensions                                                                                                                                                 |
-| --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Documents | `doc`, `docx`, `gdoc`, `gsheet`, `gslide`, `gslides`, `odp`, `ods`, `odt`, `pdf`, `ppt`, `pptx`, `rtf`, `wpd`, `xls`, `xlsm`, `xlsx`, `key`, `pages`, `numbers` |
-| Images    | `ai`, `bmp`, `gif`, `eps`, `jpeg`, `jpg`, `png`, `ps`, `psd`, `svg`, `tif`, `tiff`, `dcm`, `dicm`, `svs`, `tga`                                                 |
-| Audio     | `aac`, `aifc`, `aiff`, `amr`, `au`, `flac`, `m4a`, `mp3`, `ogg`, `ra`, `wav`, `wma`                                                                             |
-| Video     | `3g2`, `3gp`, `avi`, `m2v`, `m2ts`, `m4v`, `mkv`, `mov`, `mp4`, `mpeg`, `mpg`, `ogg`, `mts`, `qt`, `wmv`                                                        |
+| ファイルタイプ | ファイル拡張子                                                                                                                                                         |
+| ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ドキュメント  | `doc`, `docx`, `gdoc`, `gsheet`, `gslide`, `gslides`, `odp`, `ods`, `odt`, `pdf`, `ppt`, `pptx`, `rtf`, `wpd`, `xls`, `xlsm`, `xlsx`, `key`, `pages`, `numbers` |
+| 画像      | `ai`, `bmp`, `gif`, `eps`, `jpeg`, `jpg`, `png`, `ps`, `psd`, `svg`, `tif`, `tiff`, `dcm`, `dicm`, `svs`, `tga`                                                 |
+| オーディオ   | `aac`, `aifc`, `aiff`, `amr`, `au`, `flac`, `m4a`, `mp3`, `ogg`, `ra`, `wav`, `wma`                                                                             |
+| 動画      | `3g2`, `3gp`, `avi`, `m2v`, `m2ts`, `m4v`, `mkv`, `mov`, `mp4`, `mpeg`, `mpg`, `ogg`, `mts`, `qt`, `wmv`                                                        |
 
 <!-- markdownlint-enable line-length -->
 
 [list-all-representations]: guide://representations/list-all-representations
+
 [request-a-representation]: guide://representations/request-a-representation
+
 [download-a-representation]: guide://representations/download-a-representation
+
 [thumbnail_api]: guide://representations/thumbnail

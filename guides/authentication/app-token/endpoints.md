@@ -20,14 +20,13 @@ previous_page_id: authentication/app-token/without-sdk
 source_url: >-
   https://github.com/box/developer.box.com/blob/master/content/guides/authentication/app-token/endpoints.md
 ---
+# サポートされているエンドポイント
 
-# Supported Endpoints
+アプリトークン認証で現在サポートされているBox APIは少数です。
 
-App Token authentication currently only supports a handful of the BOX API.
-
-| Endpoint                                     | Path                     |
+| エンドポイント                                      | パス                       |
 | -------------------------------------------- | ------------------------ |
-| [Upload a file](e://post-files-content)      | `POST /files/content`    |
+| [ファイルをアップロード](e://post-files-content)        | `POST /files/content`    |
 | [Download a file](e://get-files-id-content)  | `GET /files/:id/content` |
 | [Delete a file](e://delete-files-id-content) | `DELETE /files/:id`      |
 | [Get embed link](e://get-files--id)          | `GET /files/:id`         |

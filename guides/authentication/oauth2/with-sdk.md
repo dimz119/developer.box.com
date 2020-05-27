@@ -25,42 +25,34 @@ previous_page_id: ''
 source_url: >-
   https://github.com/box/developer.box.com/blob/master/content/guides/authentication/oauth2/with-sdk.md
 ---
+# SDKを使用したOAuth 2.0
 
-# OAuth 2.0 with SDKs
+Box SDKには、クライアント側OAuth 2.0のサポートが組み込まれています。
 
-The Box SDKs have built-in support for client-side OAuth 2.0.
+このプロセスでは、ユーザーはブラウザでBoxウェブアプリにリダイレクトされます。そこで、ユーザーはログインし、アプリケーションによる自分のデータへのアクセスを承認すると、アプリケーションの`redirect_url`に再度リダイレクトされます。この最後の手順では、ユーザーがアクセス可能な場所にあるウェブサーバー上でアプリケーションが実行されている必要があります。
 
-In the process a user is redirected to the Box web app in a browser where they
-log in and authorize the application access to their data before they are
-redirected back to the applications `redirect_url`. This last step requires the
-application to be running on a web server somewhere accessible to the user.
+## 概要
 
-## Overview
+OAuth 2.0フローを完了するには、以下の手順を完了する必要があります。
 
-To complete an OAuth 2.0 flow the following steps need to be completed.
+1. Box SDKを構成する
+2. ユーザーをBoxウェブサイトにリダイレクトする
+3. ユーザーがアプリケーションにアクセス権限を付与する
+4. 承認コードをアクセストークンと交換する
 
-1. Configure the Box SDK
-2. Redirect the user to the Box website
-3. The user grants the application access
-4. Exchange the authorization code for an access token
-
-At the end of this flow, the application has an Access Token that can be used to
-make API calls on behalf of this user.
+このフローが終了すると、アプリケーションには、このユーザーの代わりにAPI呼び出しを実行するために使用できるアクセストークンが用意されます。
 
 <Message notice>
 
-The action token acquired through OAuth 2.0 is inherently tied to the user who
-authorized the application. Any API call made with this token will seem to
-come from this application, and the user needs to have access to any file or
-folder the application tries to access with this token.
+OAuth 2.0を介して取得した操作トークンは、もともとアプリケーションを承認したユーザーに関連付けられています。このトークンを使用して実行されるAPI呼び出しはどれも、このアプリケーションから実行されているように見えるため、ユーザーには、アプリケーションがこのトークンを使用してアクセスしようとするファイルやフォルダへのアクセス権限が必要です。
 
 </Message>
 
-## Parameters
+## パラメータ
 
 <!-- markdownlint-disable line-length -->
 
-| Parameter       | Description                                                                                                                                                   |
+| パラメータ           | 説明                                                                                                                                                            |
 | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `CLIENT_ID`     | The client ID or API key for the application                                                                                                                  |
 | `CLIENT_SECRET` | The client secret or API secret for the application                                                                                                           |
@@ -68,14 +60,13 @@ folder the application tries to access with this token.
 
 <!-- markdownlint-enable line-length -->
 
-## 1. Configure SDK
+## 1. SDKを構成する
 
-The first step is to make sure your environment has been prepared with the SDK of
-your choice.
+最初の手順として、選択したSDKを使用して環境が準備されていることを確認します。
 
 <Tabs>
 
-<Tab title='.NET'>
+<Tab title=".NET">
 
 ```dotnet
 var redirectUrl = "[REDIRECT_URI]";
@@ -129,14 +120,13 @@ Learn more about installing an SDK for your environment
 
 </CTA>
 
-## 2. Redirect user
+## 2. ユーザーをリダイレクトする
 
-Next, redirect the user to the authorization URL. Most of the SDKs support a
-way to get the authorization URL for an SDK client.
+次に、承認URLにユーザーをリダイレクトします。ほとんどのSDKでは、SDKクライアントの承認URLを取得する方法をサポートしています。
 
 <Tabs>
 
-<Tab title='.NET'>
+<Tab title=".NET">
 
 ```dotnet
 var authorizationUrl = "https://account.box.com/api/oauth2/authorize?client_id=[CLIENT_ID]&response_type=code";
@@ -182,14 +172,11 @@ var authorize_url = sdk.getAuthorizeURL({
 
 <Message>
 
-The way in which a user is redirected to a URL depends on the application
-framework used. Most framework documentation provides extensive guidance on
-this topic.
+ユーザーがURLにリダイレクトされる方法は、使用されるアプリケーションフレームワークによって異なります。このトピックの詳細については、ほとんどのフレームワークのドキュメントで説明されています。
 
 </Message>
 
-The [redirect URL](endpoint://get-authorize) can also be created manually as
-follows.
+[リダイレクトURL](endpoint://get-authorize)は、以下のように手動でも作成できます。
 
 <!-- markdownlint-disable line-length -->
 
@@ -201,41 +188,35 @@ https://account.box.com/api/oauth2/authorize?client_id=[CLIENT_ID]&redirect_uri=
 
 <Message>
 
-Additional query parameters can be passed along when redirecting the user to
-limit down the scope, or pass along some extra state. See the [reference
-documentation](endpoint://get-authorize) for more information.
+スコープを制限したり追加の状態を渡したりするためにユーザーをリダイレクトするときに、追加のクエリパラメータを渡すことができます。詳細については、[リファレンスドキュメント](endpoint://get-authorize)を参照してください。
 
 </Message>
 
-## 3. User grants application access
+## 3. ユーザーがアプリケーションにアクセス権限を付与する
 
-Once the user is redirected to the Box web app they will have to log in. After
-they logged in they are presented with a screen to approve your application.
+ユーザーはBoxウェブアプリにリダイレクトされると、ログインする必要があります。ログイン後、ユーザーにはアプリケーションを承認するための画面が表示されます。
 
 <ImageFrame border center shadow width="400">
 
-![Example OAuth 2.0 approval screen](./oauth2-grant.png)
+![OAuth 2.0承認画面の例](./oauth2-grant.png)
 
 </ImageFrame>
 
-When the user accepts this requests and clicks the button, the browser will
-redirect to your application's redirect URL as configured in the developer console.
+ユーザーがこのリクエストを承認し、ボタンをクリックすると、ブラウザは、開発者コンソールで構成されたとおりにアプリケーションのリダイレクトURLにリダイレクトされます。
 
-## 4. Exchange code
+## 4. コードを交換する
 
-The user is redirected to your application's redirect URL with a query parameter
-containing a short-lived authorization code.
+ユーザーは、有効期間の短い承認コードを含むクエリパラメータが指定されたアプリケーションのリダイレクトURLにリダイレクトされます。
 
 ```curl
 https://your.domain.com/path?code=1234567
 ```
 
-This code is not an [Access Token][tokens] and is only valid for a few seconds.
-The SDKs can be used to exchange the code for an actual Access Token.
+このコードは[アクセストークン][tokens]ではなく、有効期間はほんの数秒です。SDKを使用すると、このコードを実際のアクセストークンと交換できます。
 
 <Tabs>
 
-<Tab title='.NET'>
+<Tab title=".NET">
 
 ```dotnet
 var session = await sdk.Auth.AuthenticateAsync("[CODE]");
@@ -276,7 +257,6 @@ sdk.getTokensAuthorizationCodeGrant("[CODE]", null, function(err, tokenInfo) {
 
 </Tabs>
 
-At the end of this flow, the application has an Access Token that can be used to
-make API calls on behalf of this user.
+このフローが終了すると、アプリケーションには、このユーザーの代わりにAPI呼び出しを実行するために使用できるアクセストークンが用意されます。
 
 [tokens]: guide://authentication/access-tokens

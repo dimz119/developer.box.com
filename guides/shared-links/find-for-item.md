@@ -23,16 +23,12 @@ previous_page_id: shared-links/update
 source_url: >-
   https://github.com/box/developer.box.com/blob/master/content/guides/shared-links/find-for-item.md
 ---
+# 共有リンクの項目の検索
 
-# Find Item from Shared Link
+[共有リンクの項目を検索](endpoint://get_shared_items)APIは、`BoxApi`ヘッダーを使用して共有リンクを入力として受け取り、その共有リンクが設定されているファイルまたはフォルダオブジェクトを返します。
 
-The [find item for shared link](endpoint://get_shared_items) API is designed to
-accept a shared link as an input using a `BoxApi` header and return the file or
-folder object that the shared link is set for.
+共有リンクに関連付けられているファイルオブジェクトまたはフォルダオブジェクトを取得するには、リクエストの際に共有リンクの完全なURLを指定します。
 
-To get the file or folder object associated with a shared link, supply
-the full shared link URL in the request.
-
-<Samples id='get_shared_items' >
+<Samples id="get_shared_items">
 
 </Samples>

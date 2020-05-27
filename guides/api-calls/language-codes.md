@@ -18,17 +18,15 @@ previous_page_id: api-calls/suppress-notifications
 source_url: >-
   https://github.com/box/developer.box.com/blob/master/content/guides/api-calls/language-codes.md
 ---
+# 言語コード
 
-# Language Codes
+Box APIでは、ISO 639-1言語コードの修正版を使用して、ユーザーの言語を指定します。
 
-The Box API uses a modified version of the ISO 639-1 Language Code to specify a
-user's language.
+以下は、[作成][create_user]または[更新][update_user]更新時に使用する言語コードのリストです。
 
-The following is a list of language codes used when [creating][create_user] or [updating][update_user].
-
-| Language                | Code |
-|-------------------------|------|
-| Bengali                 | `bn` |
+| 言語                      | コード  |
+| ----------------------- | ---- |
+| ベンガル語                   | `bn` |
 | Danish                  | `da` |
 | German                  | `de` |
 | English (US)            | `en` |
@@ -55,4 +53,5 @@ The following is a list of language codes used when [creating][create_user] or [
 | Chinese (Traditional)   | `zt` |
 
 [create_user]: e://post_users#param-language
+
 [update_user]: e://put_users_id#param-language

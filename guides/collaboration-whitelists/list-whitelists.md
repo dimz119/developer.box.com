@@ -22,15 +22,12 @@ previous_page_id: collaboration-whitelists/create-whitelist
 source_url: >-
   https://github.com/box/developer.box.com/blob/master/content/guides/collaboration-whitelists/list-whitelists.md
 ---
+# 企業全体のコラボレーションホワイトリストの取得
 
-# List Collaboration Whitelists for an Enterprise
+コラボレーションホワイトリストの取得では、現在の会社でのコラボレーションの作成を許可するドメインがすべて返されます。
 
-Listing the collaboration whitelists will return all domains that permit
-collaborations to be created with the current enterprise.
+リクエストに必須のパラメータはありませんが、オプションで`limit`および`market`パラメータを設定すると、結果セット全体を制限してページ単位で表示できます。
 
-There are no required parameters for the request, but `limit` and `market`
-parameters may optionally be set to limit and page through the full result set.
-
-<Samples id='get_collaboration_whitelist_entries' >
+<Samples id="get_collaboration_whitelist_entries">
 
 </Samples>

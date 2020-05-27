@@ -14,14 +14,11 @@ previous_page_id: ''
 source_url: >-
   https://github.com/box/developer.box.com/blob/master/content/guides/internal/flow/next.md
 ---
-
 <!-- does not need translation -->
 
 # Next
 
-The `Next` element automatically detects the next step in a sequence of guides.
-It automatically tries to find the next guide in the same folder with a rank
-larger than this guide.
+`Next`要素は、一連のガイドにおける次の手順を自動的に検出します。同じフォルダ内でこのガイドよりランクが大きい次のガイドを自動的に検出しようとします。
 
 ```html
 <Next>
@@ -33,7 +30,7 @@ larger than this guide.
 
 <Next>
 
-Next step
+次の手順
 
 </Next>
 

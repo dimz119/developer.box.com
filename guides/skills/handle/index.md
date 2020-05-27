@@ -17,17 +17,9 @@ previous_page_id: ''
 source_url: >-
   https://github.com/box/developer.box.com/blob/master/content/guides/skills/handle/index.md
 ---
+# Skillsイベントの処理
 
-# Handle Skills Events
+[呼び出しURL](guide://skills/invocation-url)として設定されているアプリケーションまたはサイト内では、一般に以下の2つのペイロードを処理する必要があります。
 
-Within the application or site that is set up as your
-[invocation URL](guide://skills/invocation-url) you will generally need to
-handle two payloads:
-
-* [Event Payload](guide://skills/handle/payload): The Box Skills notification
-when a new file is uploaded, copied, or moved to a folder that the Skill is set
-up on.
-* [Metadata Payload](guide://skills/handle/metadata): The metadata payload that
-will need to be constructed and stored back on the original file in Box. The
-data that this request is comprised of will come from the file processing
-system, such as a machine learning system.
+* [イベントペイロード](guide://skills/handle/payload): スキルが設定されているフォルダに新しいファイルがアップロード、コピー、または移動されたときのBox Skills通知。
+* [メタデータペイロード](guide://skills/handle/metadata): 構築してBox内の元のファイルに保存し直す必要があるメタデータペイロード。このリクエストを構成するデータは、機械学習システムなどのファイル処理システムから取得されます。

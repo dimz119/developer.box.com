@@ -21,23 +21,17 @@ previous_page_id: skills/handle
 source_url: >-
   https://github.com/box/developer.box.com/blob/master/content/guides/skills/handle/payload.md
 ---
+# Skillsペイロードの解析
 
-# Parse Skills Payload
+Skillsアプリが監視するフォルダに新しいファイルがアップロード、コピー、または移動されると、アプリケーションの設定および認証中に指定された呼び出しURLに、Boxからイベントペイロードが送られます。
 
-When a new file is uploaded, copied, or moved to a folder monitored by a Skills
-app, the invocation URL that was specified during application setup and
-authentication will receive an event payload from Box.
+このイベントペイロードには、アップロードされたファイルのコンテンツを読み込んで機械学習システムなどの処理システムに送信し、処理システムの完了後にファイルにメタデータを書き戻すために必要な情報がすべて含まれています。
 
-The event payload will contain all information needed to read in the content of
-the uploaded file to send to a processing system, such as a machine learning
-system, and to write metadata back to the file once the processing system has
-completed.
-
-## Example Payload
+## ペイロードの例
 
 <Tabs>
 
-<Tab title='Skills JSON Payload'>
+<Tab title="Skills JSONペイロード">
 
 <!-- markdownlint-disable line-length -->
 
@@ -140,13 +134,13 @@ completed.
 
 </Tabs>
 
-## Payload Components
+## ペイロードのコンポーネント
 
-The Skills event payload can be broken down into the following top level objects:
+Skillsイベントペイロードは、以下の最上位オブジェクトに分類できます。
 
 <!-- markdownlint-disable line-length -->
 
-| Object       | Description                                                                                                                                                                                                                                                                                                |
+| Object       | 説明                                                                                                                                                                                                                                                                                                         |
 | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `type`       | The type of event, which will always be `skill_invocation`.                                                                                                                                                                                                                                                |
 | `skill`      | Details of the Custom Skills app that sent the event. This information should be used to verify the source of the request.                                                                                                                                                                                 |
@@ -162,16 +156,8 @@ The Skills event payload can be broken down into the following top level objects
 
 <!-- markdownlint-enable line-length -->
 
-At a bare minimum, the following three pieces of information needed to download
-the file and update metadata for the file:
+ファイルをダウンロードし、そのファイルのメタデータを更新するには、少なくとも以下の3つの情報が必要です。
 
-- **Read token**: Located within the `token` object, the read token will allow
-you   to call the [download file endpoint](endpoint://get_files_id) to
-download the file content to send to the processing system.
-- **Write token**: Located within the `token` object, the write token will allow
-you to call the
-[create metadata on file endpoint](e://post_files_id_metadata_id_id)
-once the file processing has completed.
-- **File ID**: Located within the `source` object, the file ID will be needed by
-the above two endpoints to determine which file should be downloaded or have
-metadata applied to it.
+* **読み取りトークン**: `token`オブジェクト内の読み取りトークンを使用すると、[ファイルをダウンロード](endpoint://get_files_id)エンドポイントを呼び出し、処理システムに送信するファイルコンテンツをダウンロードできます。
+* **書き込みトークン**: ファイル処理の終了後、`token`オブジェクト内の書き込みトークンを使用すると、[ファイルメタデータを作成](e://post_files_id_metadata_id_id)エンドポイントを呼び出すことができます。
+* **ファイルID**: `source`オブジェクト内にあります。上記の2つのエンドポイントで、ダウンロードするファイルまたはメタデータを適用するファイルを特定するには、このファイルIDが必要です。

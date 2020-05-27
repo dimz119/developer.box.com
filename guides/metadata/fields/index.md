@@ -13,20 +13,16 @@ previous_page_id: metadata/fields/float
 source_url: >-
   https://github.com/box/developer.box.com/blob/master/content/guides/metadata/3-fields/0-index.md
 ---
+# メタデータフィールド
 
-# Metadata fields
+[メタデータテンプレートフィールド][r_field]には、メタデータテンプレート内の特定のデータが記載されています。たとえば、請求書のIDを`invoiceData`テンプレートの`id`フィールドとして表すことができます。
 
-A [metadata template field][r_field] describes a specific
-piece of data within a metadata template. For example, the ID of an invoice
-might be represented as an `id` field on an `invoiceData` template.
-
-Every metadata template contains a list of `field` objects, and each field is of
-one of the following types:
+すべてのメタデータテンプレートには`field`オブジェクトのリストが含まれており、各フィールドは次のいずれかのタイプになります。
 
 <!-- markdownlint-disable line-length -->
 
 |                                                   |                                               |
-|---------------------------------------------------|-----------------------------------------------|
+| ------------------------------------------------- | --------------------------------------------- |
 | [`string`](g://metadata/fields/string)            | A text field                                  |
 | [`float`](g://metadata/fields/float)              | A numeric input field                         |
 | [`date`](g://metadata/fields/date)                | A date picker field                           |
@@ -35,16 +31,12 @@ one of the following types:
 
 <!-- markdownlint-enable line-length -->
 
-## Basic field types
+## 基本的なフィールドタイプ
 
-The basic field types are a `string` for a text field, `float` for a numeric
-field, and `date` for a date-time picker field.
+基本的なフィールドタイプは、テキストフィールドの場合は`string`、数値フィールドの場合は`float`、日時選択フィールドの場合`date`です。
 
-## Lists field types
+## リストのフィールドタイプ
 
-Additionally, metadata templates support two field types to represent dropdown
-lists. An `enum` field represents a list of predefined items that a user can
-select, while a `multiSelect` field represents a list of items where the user
-can select more than one value.
+さらに、メタデータテンプレートでは、ドロップダウンリストを表す2つのフィールドタイプをサポートしています。`enum`フィールドは、ユーザーが選択できるあらかじめ定義された項目のリストを表すのに対し、`multiSelect`フィールドは、ユーザーが複数の値を選択できる項目のリストを表します。
 
 [r_field]: r://metadata_field

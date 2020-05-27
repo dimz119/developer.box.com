@@ -22,30 +22,26 @@ previous_page_id: tooling/sdks/java
 source_url: >-
   https://github.com/box/developer.box.com/blob/master/content/guides/tooling/sdks/python.md
 ---
+# Python SDKのインストール
 
-# Install Python SDK
-
-The Box Python SDK can be used to make API calls to the Box APIs in a Python
-project.
+Pythonプロジェクトでは、Box Python SDKを使用してBox APIへのAPI呼び出しを行うことができます。
 
 <CTA to="https://github.com/box/box-python-sdk">
 Learn more about the Python SDK on GitHub
 
 </CTA>
 
-## Installation
+## インストール
 
-To install the Python SDK run the following command from your terminal
-window or command prompt using [pip][pip].
+Python SDKをインストールするには、[pip][pip]を使用してターミナルウィンドウまたはコマンドプロンプトから以下のコマンドを実行します。
 
 ```shell
 pip install boxsdk
 ```
 
-## JWT application
+## JWTアプリケーション
 
-When working with a Box App that uses server-side [JWT authentication][jwt], the
-following additional module needs to be installed.
+サーバー側[JWT認証][jwt]を使用するBoxアプリを使用する場合、次の追加モジュールをインストールする必要があります。
 
 ```shell
 pip install "boxsdk[jwt]"
@@ -57,4 +53,5 @@ Learn more about the Python SDK on GitHub
 </CTA>
 
 [pip]: https://pypi.org/project/pip/
+
 [jwt]: g://authentication/jwt

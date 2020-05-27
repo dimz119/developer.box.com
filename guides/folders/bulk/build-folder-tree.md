@@ -23,22 +23,17 @@ previous_page_id: folders/bulk
 source_url: >-
   https://github.com/box/developer.box.com/blob/master/content/guides/folders/bulk/build-folder-tree.md
 ---
+# フォルダツリーの作成
 
-# Build Folder Tree
+以下の例は、フォルダツリーのJSONレプリゼンテーションを作成する方法を示しています。フォルダツリーは、フォルダの名前とそのフォルダ内にあるすべてのサブフォルダで構成されます。
 
-The following examples provide an example on how to create a JSON representation
-of a folder tree. A folder tree is the name of a folder, and every subfolder
-within that folder.
-
-The sample below allows for specifying the starting **root** folder and the
-maximum depth the code should traverse. It also allows for configuring what user
-is authenticated by allowing the passing in of an initialized SDK client.
+以下のサンプルでは、先頭の**ルート**フォルダと、コードでトラバースする最大深度を指定できます。また、初期化されたSDKクライアントを渡すことができるため、どのユーザーが認証されるかを構成することもできます。
 
 <!-- markdownlint-disable line-length -->
 
 <Tabs>
 
-<Tab title='.NET'>
+<Tab title=".NET">
 
 ```dotnet
 using System;

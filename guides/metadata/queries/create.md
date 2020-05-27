@@ -15,14 +15,9 @@ previous_page_id: ''
 source_url: >-
   https://github.com/box/developer.box.com/blob/master/content/guides/metadata/5-queries/1-create.md
 ---
+# クエリの作成
 
-# Create a query
-
-A metadata query is a `POST` request to the ​`/metadata_queries/execute_read`-
-endpoint, in which the body contains all the parts of the metadata query. Most
-important here are the `from` attribute that specifies the template to search
-for, the `ancestor_folder_id` to specify the folder to search in, and the
-`query` to determine any template fields to search by.
+メタデータクエリとは、`/metadata_queries/execute_read`エンドポイントに対する`POST`リクエストで、その本文にはメタデータクエリのすべてのパーツが含まれています。ここで最も重要なのは、検索対象のテンプレートを指定する`from`属性、検索するフォルダを指定する`ancestor_folder_id`、検索に使用するすべてのテンプレートフィールドを決定する`query`です。
 
 ```curl
 curl -X POST https://api.box.com/2.0/metadata_queries/execute_read \
@@ -46,23 +41,16 @@ curl -X POST https://api.box.com/2.0/metadata_queries/execute_read \
      }'
 ```
 
-For more details about all the available parameters, check out any of our other
-[metadata query guides](g://metadata/queries), or the associated [endpoint
-reference](e://post_metadata_queries_execute_read).
+使用可能なすべてのパラメータの詳細については、Boxの他の[メタデータクエリガイド](g://metadata/queries)または関連する[エンドポイントリファレンス](e://post_metadata_queries_execute_read)を参照してください。
 
-<CTA to='g://metadata/queries/syntax'>
+<CTA to="g://metadata/queries/syntax">
 Learn more about the query syntax
 
 </CTA>
 
-## Response
+## レスポンス
 
-Any files or folders that match the query are returned in the API response.
-The body of the response is a JSON object with a list of `entries` for each file
-or folder, and a `next_marker` value that you can use to find the next page of
-results. Each of the entries will have an `item` representing the file or
-folder, as well as a `metadata` instance containing the metadata attached to the
-file or folder.
+クエリに一致するすべてのファイルまたはフォルダがあれば、API応答で返されます。応答の本文はJSONオブジェクトで、各ファイルまたはフォルダの`entries`のリストと、次の検索結果ページを見つけるための`next_marker`値が含まれています。各エントリには、ファイルまたはフォルダを表す`item`のほか、ファイルまたはフォルダに追加されているメタデータを含む`metadata`インスタンスが含まれます。
 
 ```json
 {
@@ -172,10 +160,9 @@ file or folder.
 }
 ```
 
-By default this API returns `20` items per page, but more items can be requested
-using marker-based pagination.
+このAPIはデフォルトで、ページあたり`20`個の項目を返しますが、マーカーベースのページ割りを使用すると、さらに多くの項目をリクエストできます。
 
-<CTA to='g://metadata/queries/pagination'>
+<CTA to="g://metadata/queries/pagination">
 Learn more about paginating query results
 
 </CTA>

@@ -22,14 +22,11 @@ previous_page_id: ''
 source_url: >-
   https://github.com/box/developer.box.com/blob/master/content/guides/tooling/sdks/dotnet.md
 ---
+# .NETSDKのインストール
 
-# Install .NET SDK
+.NETプロジェクトでは、Box .NET SDKを使用してBox APIへのAPI呼び出しを行うことができます。
 
-The Box .NET SDK can be used to make API calls to the Box APIs in a .NET
-project.
-
-The SDK is available for both .NET Framework 4.5 and .NET Core 1.0 or
-above. The installation of the SDK depends on the framework used.
+このSDKは、.NET Framework 4.5以上および.NET Core 1.0以上の両方で利用できます。SDKのインストール方法は、使用しているフレームワークによって異なります。
 
 <CTA to="https://github.com/box/box-windows-sdk-v2">
 Learn more about the .NET SDK on GitHub
@@ -38,8 +35,7 @@ Learn more about the .NET SDK on GitHub
 
 ## .NET Framework
 
-To install the .NET SDK in the .NET framework, run the following command using
-the [Nuget][nuget] package manager.
+.NET Frameworkに.NET SDKをインストールするには、[Nuget][nuget]パッケージマネージャを使用して以下のコマンドを実行します。
 
 ```shell
 PM> Install-Package Box.V2
@@ -47,8 +43,7 @@ PM> Install-Package Box.V2
 
 ## .NET Core
 
-To install the .NET SDK in the .NET Core framework, run the following command
-using the [Nuget][nuget] package manager.
+.NET Coreフレームワークに.NET SDKをインストールするには、[Nuget][nuget]パッケージマネージャを使用して以下のコマンドを実行します。
 
 ```shell
 PM> Install-Package Box.V2.Core
